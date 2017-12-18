@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../../partials/head') %>
+</head>
+<body>
+<container>
+
+  <%- include('../../partials/nav', { navitems: undefined}) %>
+
+
+  <div class='col-md-12'>
+
+    <dl>
+      <dt>Author Detail:</dt>
+      <dd>
+        <p><%= author.name %></p>
+        <p><%= author.age %></p>
+        <p><%= author.books %></p>
+      </dd>
+    </dl>
+
+  </div>
+
+  <div>
+    <%- include('../../partials/footer') %>
+  </div>
+
+</container>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div>
+  <nav class='navbar navbar-inverse'>
+    <div class='container-fluid'>
+      <a href='/authors' class='navbar-brand'>Authors</a>
+      <a href='/books' class='navbar-brand'>Books</a>
+      <% if ( navitems && navitems.length > 0  ) {  %>
+      <% for( let ni of navitems ) { %>
+        <a href='<%= ni.href %>' class='<%= ni.class %>'><%= ni.text %></a>
+      <% } %>
+      <% } %>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../../partials/head') %>
+</head>
+<body>
+<container>
+  <%- include('../../partials/nav',  { navitems: [ { href: '/authors/new', text: 'New Author', class: 'navbar-brand' }, { href: '/books/new', text: 'New Book', class: 'navbar-brand' }] }) %>
+
+  <div>
+    <table class='table'>
+      <thead>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Books</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <% for ( let author of authors ) { %>
+      <tr>
+        <td><a href='/authors/<%= author._id %>'><%= author.name %></a></td>
+        <td><%= author.age %></td>
+        <td><select id='books'>
+            <% for(const book of author.books) { %>
+            <option value='<%= book._id %>'><%= book.title %></option>
+            <% } %>
+          </select></td>
+        <td></td>
+      </tr>
+      <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <%- include('../../partials/footer') %>
+
+</container>
+</body>
+</html>

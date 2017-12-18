@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express = require('express');
+var parser = require('body-parser');
+var path = require("path");
+var PORT = process.env['PORT'] || 8000;
+var app = express();
+app.use(parser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+require('./server/config/database');
+app.use(require('./server/config'));
+// const routes = require('server/config/routes');
+// routes(app);
+app.listen(PORT, function () { return console.log("Server listening on port: " + PORT); });
